@@ -1,0 +1,21 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Code Peer Review with GitHub"
+  author: "UCL Centre for Data Science"
+  date: "today"
+  chapters:
+    - index.qmd
+    - 01-quick-start.qmd
+    - 02-detailed-process.qmd
+    - 03-troubleshooting.qmd
+    - 04-advanced-features.qmd
+    - 05-evaluation.qmd
+    - 06-resources.qmd
+    - 07-emergency.qmd
+
+format:
+  html:
+    theme: cosmo
