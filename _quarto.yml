@@ -4,17 +4,17 @@ project:
 
 book:
   title: "Code Peer Review with GitHub"
-  author: "UCL Centre for Data Science"
+  author: "Changemakers project team"
   date: "today"
   chapters:
     - index.qmd
-    - 01-quick-start.qmd
-    - 02-detailed-process.qmd
-    - 03-troubleshooting.qmd
-    - 04-advanced-features.qmd
-    - 05-evaluation.qmd
-    - 06-resources.qmd
-    - 07-emergency.qmd
+    - 01-introduction.qmd
+    - 02-setup-for-teachers.qmd
+    - 03-overview-for-teachers.qmd
+    - 04-details-for-teachers.qmd
+    - 05-overview-for-students.qmd
+    - 06-setup-for-students.qmd
+    - 07-FAQs.qmd
 
 format:
   html:

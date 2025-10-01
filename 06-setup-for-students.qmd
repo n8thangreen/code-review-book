@@ -1,0 +1,17 @@
+## Getting Started
+
+### Step 1: Create Your GitHub Account
+
+If you already have one under some other email account and want to use it for the code review, then please go to the next section. Otherwise:
+
+1. Go to [github.com](https://github.com)
+2. Click "Sign up" 
+3. Choose a username (tip: use something professional as you might use this for job applications later!)
+4. Use your UCL email address
+5. Create a strong password
+6. Verify your email when GitHub sends you a message
+
+### Step 2: Upload Your Assignment to Moodle
+- Submit your code assignment to Moodle as you normally would
+- **Also include your GitHub username** in your submission or as requested by your teacher
+

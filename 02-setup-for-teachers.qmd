@@ -1,0 +1,7 @@
+## Prerequisites
+
+- GitHub account with ability to create organizations
+- Access to module Moodle page
+- R and RStudio installed
+- Student list with GitHub usernames
+- Assessment materials and marking criteria prepared

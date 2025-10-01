@@ -1,0 +1,102 @@
+## Quick Start with Automation Scripts
+
+### 1. Initial Setup (One-Time)
+
+**Download and organize the automation scripts:**
+```
+project_folder/
+├── setup_config.R
+├── main_automation_script.R
+├── github_functions.R
+├── file_management.R
+├── monitor_progress.R
+└── README.md
+```
+
+**Run the setup script:**
+
+```r
+# In RStudio/R console
+source("setup_config.R")
+run_setup()
+```
+
+This automated setup will:
+- Install required R packages
+- Guide you through GitHub token creation
+- Create necessary folder structure
+- Generate sample configuration files
+- Validate your setup
+
+### 2. Prepare Your Data
+
+**Create your student list (`student_list.csv`):**
+```csv
+student_id,github_username,ucl_email,name
+12345,alice_github,alice.smith@ucl.ac.uk,Alice Smith
+12346,bob_jones,bob.jones@ucl.ac.uk,Bob Jones
+12347,carol_white,carol.white@ucl.ac.uk,Carol White
+```
+
+**Organize student submissions:**
+Download submissions from Moodle and organize them in folders:
+```
+submissions/
+├── 12345/
+│   ├── analysis.R
+│   └── data_cleaning.R
+├── 12346/
+│   ├── analysis.R
+│   └── visualization.R
+```
+
+### 3. Run the Automation
+
+**Configure the main script:**
+Edit these variables in `main_automation_script.R`:
+```r
+ORG_NAME <- "UCL-StatSci-STAT0001-2025"      # Your GitHub organization
+ASSIGNMENT_NAME <- "assignment-1"            # Current assignment
+LOCAL_SUBMISSIONS_PATH <- "submissions/"     # Path to submissions
+```
+
+**Execute the automation:**
+```r
+source("main_automation_script.R")
+```
+
+**What happens automatically:**
+- ✅ Creates private repositories for each student
+- ✅ Sets up reviewer branches and issue templates
+- ✅ Uploads all student files
+- ✅ Randomly assigns peer reviewers (2 per student)
+- ✅ Sets repository permissions
+- ✅ Generates email templates and distribution URLs
+
+### 4. Distribute Access Information
+
+The script generates several files:
+- `student_repo_links.csv` - Repository URLs for each student
+- `email_templates/` - Personalized emails for each student
+- `reviewer_assignments.csv` - Complete assignment matrix
+
+**Send emails to students:**
+Use the generated email templates or import the CSV data into your email system for mail merge.
+
+### 5. Monitor Progress
+
+**Track completion in real-time:**
+```r
+source("monitor_progress.R")
+report <- run_progress_check()
+```
+
+**What you get:**
+- Completion rates across all students
+- Visual progress charts
+- Detailed analytics
+- Automated reminder emails for incomplete reviews
+
+
+
+The section below is a very detailed explanation of the workflow. If you have any trouble executing the above procedure, please refer to the section below, and the `README.md` document under the setup folder.
