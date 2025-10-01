@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Code Peer Review with GitHub",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2",
+    "text": "Preface\nHello! :wave:",
     "crumbs": [
       "Preface"
     ]
@@ -12,131 +12,191 @@
   {
     "objectID": "01-introduction.html",
     "href": "01-introduction.html",
-    "title": "1  What is Code Peer Review? Why on Github?",
+    "title": "1  Introduction",
     "section": "",
-    "text": "1.1 What is GitHub?\nThis guide provides instructions for implementing a code peer review system using GitHub for undergraduate computing modules. With the new automation scripts, most of the setup process is now automated, making implementation much faster and more reliable. The system integrates with Moodle for familiar student submission and leverages GitHub’s collaborative features for peer review.\nCode peer review is when you look at another student’s code and give them helpful feedback, just like when you review each other’s essays. At the same time, other students will review your code and give you feedback. This helps everyone learn from each other and improve their coding skills. Learning to review code and use GitHub will help you in your career because:\nGitHub is a website that programmers use to share and work on code together. Think of it like Google Docs, but specifically designed for computer code. Don’t worry if you’ve never used it before - this guide will walk you through everything step by step!",
+    "text": "1.1 What is Code Peer Review? Why on Github?\nThis guide provides instructions for implementing a code peer review system using GitHub for undergraduate computing modules. With the new automation scripts, most of the setup process is now automated, making implementation much faster and more reliable. The system integrates with Moodle for familiar student submission and leverages GitHub’s collaborative features for peer review.\nCode peer review is when you look at another student’s code and give them helpful feedback, just like when you review each other’s essays. At the same time, other students will review your code and give you feedback. This helps everyone learn from each other and improve their coding skills. Learning to review code and use GitHub will help you in your career because:",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>What is Code Peer Review? Why on Github?</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "01-introduction.html#what-is-code-peer-review-why-on-github",
+    "href": "01-introduction.html#what-is-code-peer-review-why-on-github",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "Most tech companies use GitHub or similar tools\nCode review is a standard practice in professional programming\nIt teaches you to read and understand other people’s code\nIt helps you write clearer, better code\nIt’s a valuable skill to mention in job applications",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "01-introduction.html#what-is-github",
+    "href": "01-introduction.html#what-is-github",
+    "title": "1  Introduction",
+    "section": "1.2 What is GitHub?",
+    "text": "1.2 What is GitHub?\nGitHub is a website that programmers use to share and work on code together. Think of it like Google Docs, but specifically designed for computer code. Don’t worry if you’ve never used it before - this guide will walk you through everything step by step!",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
   {
     "objectID": "02-setup-for-teachers.html",
     "href": "02-setup-for-teachers.html",
-    "title": "2  Prerequisites",
+    "title": "2  Set-up for Teachers",
+    "section": "",
+    "text": "2.1 Prerequisites",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Set-up for Teachers</span>"
+    ]
+  },
+  {
+    "objectID": "02-setup-for-teachers.html#prerequisites",
+    "href": "02-setup-for-teachers.html#prerequisites",
+    "title": "2  Set-up for Teachers",
     "section": "",
     "text": "GitHub account with ability to create organizations\nAccess to module Moodle page\nR and RStudio installed\nStudent list with GitHub usernames\nAssessment materials and marking criteria prepared",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Prerequisites</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Set-up for Teachers</span>"
     ]
   },
   {
     "objectID": "03-overview-for-teachers.html",
     "href": "03-overview-for-teachers.html",
-    "title": "3  Quick Start with Automation Scripts",
+    "title": "3  Overview for Teachers",
     "section": "",
-    "text": "3.0.1 1. Initial Setup (One-Time)\nDownload and organize the automation scripts:\nproject_folder/\n├── setup_config.R\n├── main_automation_script.R\n├── github_functions.R\n├── file_management.R\n├── monitor_progress.R\n└── README.md\nRun the setup script:\n# In RStudio/R console\nsource(\"setup_config.R\")\nrun_setup()\nThis automated setup will: - Install required R packages - Guide you through GitHub token creation - Create necessary folder structure - Generate sample configuration files - Validate your setup\n\n\n3.0.2 2. Prepare Your Data\nCreate your student list (student_list.csv):\nstudent_id,github_username,ucl_email,name\n12345,alice_github,alice.smith@ucl.ac.uk,Alice Smith\n12346,bob_jones,bob.jones@ucl.ac.uk,Bob Jones\n12347,carol_white,carol.white@ucl.ac.uk,Carol White\nOrganize student submissions: Download submissions from Moodle and organize them in folders:\nsubmissions/\n├── 12345/\n│   ├── analysis.R\n│   └── data_cleaning.R\n├── 12346/\n│   ├── analysis.R\n│   └── visualization.R\n\n\n3.0.3 3. Run the Automation\nConfigure the main script: Edit these variables in main_automation_script.R:\nORG_NAME &lt;- \"UCL-StatSci-STAT0001-2025\"      # Your GitHub organization\nASSIGNMENT_NAME &lt;- \"assignment-1\"            # Current assignment\nLOCAL_SUBMISSIONS_PATH &lt;- \"submissions/\"     # Path to submissions\nExecute the automation:\nsource(\"main_automation_script.R\")\nWhat happens automatically: - ✅ Creates private repositories for each student - ✅ Sets up reviewer branches and issue templates - ✅ Uploads all student files - ✅ Randomly assigns peer reviewers (2 per student) - ✅ Sets repository permissions - ✅ Generates email templates and distribution URLs\n\n\n3.0.4 4. Distribute Access Information\nThe script generates several files: - student_repo_links.csv - Repository URLs for each student - email_templates/ - Personalized emails for each student - reviewer_assignments.csv - Complete assignment matrix\nSend emails to students: Use the generated email templates or import the CSV data into your email system for mail merge.\n\n\n3.0.5 5. Monitor Progress\nTrack completion in real-time:\nsource(\"monitor_progress.R\")\nreport &lt;- run_progress_check()\nWhat you get: - Completion rates across all students - Visual progress charts - Detailed analytics - Automated reminder emails for incomplete reviews\nThe section below is a very detailed explanation of the workflow. If you have any trouble executing the above procedure, please refer to the section below, and the README.md document under the setup folder.",
+    "text": "3.1 Quick Start with Automation Scripts",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Quick Start with Automation Scripts</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Overview for Teachers</span>"
+    ]
+  },
+  {
+    "objectID": "03-overview-for-teachers.html#quick-start-with-automation-scripts",
+    "href": "03-overview-for-teachers.html#quick-start-with-automation-scripts",
+    "title": "3  Overview for Teachers",
+    "section": "",
+    "text": "3.1.1 1. Initial Setup (One-Time)\nDownload and organize the automation scripts:\nproject_folder/\n├── setup_config.R\n├── main_automation_script.R\n├── github_functions.R\n├── file_management.R\n├── monitor_progress.R\n└── README.md\nRun the setup script:\n# In RStudio/R console\nsource(\"setup_config.R\")\nrun_setup()\nThis automated setup will: - Install required R packages - Guide you through GitHub token creation - Create necessary folder structure - Generate sample configuration files - Validate your setup\n\n\n3.1.2 2. Prepare Your Data\nCreate your student list (student_list.csv):\nstudent_id,github_username,ucl_email,name\n12345,alice_github,alice.smith@ucl.ac.uk,Alice Smith\n12346,bob_jones,bob.jones@ucl.ac.uk,Bob Jones\n12347,carol_white,carol.white@ucl.ac.uk,Carol White\nOrganize student submissions: Download submissions from Moodle and organize them in folders:\nsubmissions/\n├── 12345/\n│   ├── analysis.R\n│   └── data_cleaning.R\n├── 12346/\n│   ├── analysis.R\n│   └── visualization.R\n\n\n3.1.3 3. Run the Automation\nConfigure the main script: Edit these variables in main_automation_script.R:\nORG_NAME &lt;- \"UCL-StatSci-STAT0001-2025\"      # Your GitHub organization\nASSIGNMENT_NAME &lt;- \"assignment-1\"            # Current assignment\nLOCAL_SUBMISSIONS_PATH &lt;- \"submissions/\"     # Path to submissions\nExecute the automation:\nsource(\"main_automation_script.R\")\nWhat happens automatically: - ✅ Creates private repositories for each student - ✅ Sets up reviewer branches and issue templates - ✅ Uploads all student files - ✅ Randomly assigns peer reviewers (2 per student) - ✅ Sets repository permissions - ✅ Generates email templates and distribution URLs\n\n\n3.1.4 4. Distribute Access Information\nThe script generates several files: - student_repo_links.csv - Repository URLs for each student - email_templates/ - Personalized emails for each student - reviewer_assignments.csv - Complete assignment matrix\nSend emails to students: Use the generated email templates or import the CSV data into your email system for mail merge.\n\n\n3.1.5 5. Monitor Progress\nTrack completion in real-time:\nsource(\"monitor_progress.R\")\nreport &lt;- run_progress_check()\nWhat you get: - Completion rates across all students - Visual progress charts - Detailed analytics - Automated reminder emails for incomplete reviews\nThe section below is a very detailed explanation of the workflow. If you have any trouble executing the above procedure, please refer to the section below, and the README.md document under the setup folder.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Overview for Teachers</span>"
     ]
   },
   {
     "objectID": "04-details-for-teachers.html",
     "href": "04-details-for-teachers.html",
-    "title": "4  Detailed Process Walkthrough",
+    "title": "4  Details for Teachers",
     "section": "",
-    "text": "4.0.1 GitHub Organization Setup\nCreate your organization (one-time): 1. Go to https://github.com/settings/organizations 2. Click “New organization” 3. Choose organization name: UCL-[Department]-[Module]-[Year] 4. Set to “Private” initially 5. Add description and contact information\nThe automation handles all repository creation and configuration.",
+    "text": "4.1 Detailed Process Walkthrough",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Detailed Process Walkthrough</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Details for Teachers</span>"
+    ]
+  },
+  {
+    "objectID": "04-details-for-teachers.html#detailed-process-walkthrough",
+    "href": "04-details-for-teachers.html#detailed-process-walkthrough",
+    "title": "4  Details for Teachers",
+    "section": "",
+    "text": "4.1.1 GitHub Organization Setup\nCreate your organization (one-time): 1. Go to https://github.com/settings/organizations 2. Click “New organization” 3. Choose organization name: UCL-[Department]-[Module]-[Year] 4. Set to “Private” initially 5. Add description and contact information\nThe automation handles all repository creation and configuration.\n\n\n4.1.2 Assessment Preparation\nBefore running automation, prepare:\nIssue Templates (automatically created): The scripts create structured peer review templates with sections for: - Code quality assessment - Correctness evaluation - Constructive feedback - Learning reflections\nMarking Criteria Integration: Customize the issue template in github_functions.R to align with your specific marking criteria:\n# Edit the peer_review_template variable to match your assessment goals\nAssignment Instructions: Prepare clear instructions that reference: - Learning objectives for peer review - Timeline and deadlines - Technical support resources - Assessment weighting (if applicable)\n\n\n4.1.3 Student Data Collection\nCollect GitHub usernames efficiently:\nOption 1: Moodle Survey Create a Moodle survey with: - “GitHub username” text field - Instructions for creating GitHub accounts - Link to GitHub Education benefits\nOption 2: Submission Requirement Include GitHub username as part of the assignment submission requirements.\nOption 3: Lab Session Collection Collect usernames during the first computer lab session.\n\n\n4.1.4 File Transfer Workflow\nAutomated Process (Recommended):\n# Place files in submissions/[student_id]/ folders\n# Run the main automation script\nsource(\"main_automation_script.R\")\nManual Process (Backup Method): If automation fails, you can still upload files manually: 1. Create repositories individually 2. Upload files through GitHub web interface 3. Set permissions manually 4. Generate assignment lists manually\n\n\n4.1.5 Managing the Review Process\nMonitoring Student Engagement:\n# Run daily or weekly progress checks\nsource(\"monitor_progress.R\")\nrun_progress_check()\n\n# Generates:\n# - Completion rate summaries\n# - Individual student progress\n# - Reminder emails for laggards\nFacilitating Quality Reviews: - Monitor issue creation across repositories - Look for generic or unconstructive feedback - Highlight examples of excellent reviews to the class - Provide additional guidance if review quality is poor\n\n\n4.1.6 Assessment Integration\nAssessing Peer Review Participation:\nQuantitative Measures: - Completion of required review templates - Timeliness of feedback submission - Engagement with issue discussions\nQualitative Assessment:\n# Use monitoring script to extract review content\n# Assess based on:\n# - Constructiveness of feedback\n# - Specificity of observations\n# - Helpful suggestions provided\n# - Professional communication tone\n\n\n4.1.7 Troubleshooting with Automation\nCommon Issues and Solutions:\nScript Failures:\n# Check configuration\nsource(\"setup_config.R\")\nvalidate_configuration()\n\n# Test GitHub connection\ntest_github_connection()\nStudent Access Problems: - Verify GitHub usernames in student_list.csv - Check repository permissions in GitHub organization - Use monitoring script to identify access issues\nFile Upload Issues: - Check file sizes (GitHub limit: 100MB per file) - Verify file paths in submissions folders - Review console output for specific error messages\nIncomplete Reviews:\n# Generate targeted reminders\nsource(\"monitor_progress.R\")\nrun_progress_check()  # Creates reminder emails automatically\n\n\n4.1.8 Advanced Features\nCustomizing Review Assignments: Edit file_management.R to modify reviewer assignment logic:\n# Change number of reviewers per student\nassign_peer_reviewers(students, reviews_per_student = 3)\n\n# Implement stratified assignment (e.g., by ability level)\n# Custom logic can be added to the assign_peer_reviewers function\nIntegration with Continuous Assessment: - Use repository activity for participation grades - Track improvement over multiple assignments - Monitor collaborative discussion quality\nScaling for Large Classes: The automation scripts handle classes up to 200+ students efficiently: - Batch processing minimizes API rate limits - Progress monitoring scales automatically - Email generation handles large volumes\n\n\n4.1.9 Alternative Workflows\nFor Smaller Classes (&lt;20 students): Consider having all students review all submissions for maximum learning.\nFor Advanced Students: - Enable pull request reviews in addition to issues - Encourage code improvement suggestions - Allow collaborative debugging sessions\nFor Assessment-Heavy Modules: - Use multiple rounds of peer review - Implement peer review of peer reviews (meta-review) - Create portfolio-based assessment incorporating peer feedback",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Details for Teachers</span>"
     ]
   },
   {
     "objectID": "04-details-for-teachers.html#evaluation-and-improvement",
     "href": "04-details-for-teachers.html#evaluation-and-improvement",
-    "title": "4  Detailed Process Walkthrough",
-    "section": "4.1 Evaluation and Improvement",
-    "text": "4.1 Evaluation and Improvement\n\n4.1.1 Data Collection\nAutomated Metrics:\n# Progress monitoring provides:\n# - Completion rates\n# - Engagement timing\n# - Issue/PR creation patterns\n# - Student interaction levels\nStudent Feedback: - Post-assignment surveys about GitHub experience - Focus groups on peer review value - Comparison with traditional feedback methods\nLearning Outcomes Assessment: - Code quality improvement over semester - Development of collaborative skills - Professional tool proficiency\n\n\n4.1.2 Iterative Improvements\nBased on Student Feedback: - Adjust issue template questions - Modify review assignment algorithms - Update student guidance materials - Refine technical support processes\nBased on Teaching Observations: - Identify common student misconceptions - Adjust scaffold levels for GitHub introduction - Modify assessment weightings - Update marking criteria",
+    "title": "4  Details for Teachers",
+    "section": "4.2 Evaluation and Improvement",
+    "text": "4.2 Evaluation and Improvement\n\n4.2.1 Data Collection\nAutomated Metrics:\n# Progress monitoring provides:\n# - Completion rates\n# - Engagement timing\n# - Issue/PR creation patterns\n# - Student interaction levels\nStudent Feedback: - Post-assignment surveys about GitHub experience - Focus groups on peer review value - Comparison with traditional feedback methods\nLearning Outcomes Assessment: - Code quality improvement over semester - Development of collaborative skills - Professional tool proficiency\n\n\n4.2.2 Iterative Improvements\nBased on Student Feedback: - Adjust issue template questions - Modify review assignment algorithms - Update student guidance materials - Refine technical support processes\nBased on Teaching Observations: - Identify common student misconceptions - Adjust scaffold levels for GitHub introduction - Modify assessment weightings - Update marking criteria",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Detailed Process Walkthrough</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Details for Teachers</span>"
     ]
   },
   {
     "objectID": "04-details-for-teachers.html#resource-requirements",
     "href": "04-details-for-teachers.html#resource-requirements",
-    "title": "4  Detailed Process Walkthrough",
-    "section": "4.2 Resource Requirements",
-    "text": "4.2 Resource Requirements\n\n4.2.1 Technical Infrastructure\n\nGitHub Organization: Free for educational use\nAutomation Scripts: Provided, no additional cost\nR/RStudio: Free, open-source software\nComputing Resources: Minimal - runs on standard academic workstations\n\n\n\n4.2.2 Time Investment\nInitial Setup (First Time): - Script configuration: 30 minutes - GitHub organization setup: 15 minutes - Student data preparation: 45 minutes - Total: ~1.5 hours\nPer Assignment (Ongoing): - File organization: 15 minutes - Running automation: 5 minutes - Monitoring and reminders: 10 minutes weekly - Total: ~20 minutes + weekly monitoring\n\n\n4.2.3 Support Requirements\nFor Students: - Provide comprehensive student guide - Offer optional GitHub tutorial sessions - Establish peer mentoring system - Create backup support during lab sessions\nFor Teaching Staff: - Train additional instructors on script usage - Establish backup procedures for technical failures - Document customizations and local adaptations - Plan for software updates and maintenance",
+    "title": "4  Details for Teachers",
+    "section": "4.3 Resource Requirements",
+    "text": "4.3 Resource Requirements\n\n4.3.1 Technical Infrastructure\n\nGitHub Organization: Free for educational use\nAutomation Scripts: Provided, no additional cost\nR/RStudio: Free, open-source software\nComputing Resources: Minimal - runs on standard academic workstations\n\n\n\n4.3.2 Time Investment\nInitial Setup (First Time): - Script configuration: 30 minutes - GitHub organization setup: 15 minutes - Student data preparation: 45 minutes - Total: ~1.5 hours\nPer Assignment (Ongoing): - File organization: 15 minutes - Running automation: 5 minutes - Monitoring and reminders: 10 minutes weekly - Total: ~20 minutes + weekly monitoring\n\n\n4.3.3 Support Requirements\nFor Students: - Provide comprehensive student guide - Offer optional GitHub tutorial sessions - Establish peer mentoring system - Create backup support during lab sessions\nFor Teaching Staff: - Train additional instructors on script usage - Establish backup procedures for technical failures - Document customizations and local adaptations - Plan for software updates and maintenance",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Detailed Process Walkthrough</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Details for Teachers</span>"
     ]
   },
   {
     "objectID": "04-details-for-teachers.html#success-metrics-and-expectations",
     "href": "04-details-for-teachers.html#success-metrics-and-expectations",
-    "title": "4  Detailed Process Walkthrough",
-    "section": "4.3 Success Metrics and Expectations",
-    "text": "4.3 Success Metrics and Expectations\n\n4.3.1 Short-term Indicators\n\n\n90% successful repository setup\n\n\n80% completion of peer reviews within deadline\n\n&lt;5% technical support requests requiring instructor intervention\nPositive student feedback on learning experience\n\n\n\n4.3.2 Long-term Outcomes\n\nImproved code quality in subsequent assignments\nIncreased student confidence with collaborative tools\nEnhanced peer learning culture in the module\nTransferable skills development for industry preparation",
+    "title": "4  Details for Teachers",
+    "section": "4.4 Success Metrics and Expectations",
+    "text": "4.4 Success Metrics and Expectations\n\n4.4.1 Short-term Indicators\n\n\n90% successful repository setup\n\n\n80% completion of peer reviews within deadline\n\n&lt;5% technical support requests requiring instructor intervention\nPositive student feedback on learning experience\n\n\n\n4.4.2 Long-term Outcomes\n\nImproved code quality in subsequent assignments\nIncreased student confidence with collaborative tools\nEnhanced peer learning culture in the module\nTransferable skills development for industry preparation",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Detailed Process Walkthrough</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Details for Teachers</span>"
     ]
   },
   {
     "objectID": "04-details-for-teachers.html#emergency-procedures-and-backup-plans",
     "href": "04-details-for-teachers.html#emergency-procedures-and-backup-plans",
-    "title": "4  Detailed Process Walkthrough",
-    "section": "4.4 Emergency Procedures and Backup Plans",
-    "text": "4.4 Emergency Procedures and Backup Plans\nGitHub Service Outages: - Monitor GitHub status page - Extend deadlines if necessary - Use manual review process as fallback - Communicate clearly with students\nScript Failures: - Revert to manual repository creation - Use provided troubleshooting guide - Contact technical support resources - Document issues for future improvement\nStudent Technical Difficulties: - Provide alternative access methods - Offer individual technical support - Consider accommodation for accessibility needs - Maintain flexible deadline policies\nRemember: The automation scripts handle the complex technical setup, allowing you to focus on the pedagogical aspects of peer review and student learning outcomes. Start small with one assignment, gather feedback, and iterate based on your experience and student needs.",
+    "title": "4  Details for Teachers",
+    "section": "4.5 Emergency Procedures and Backup Plans",
+    "text": "4.5 Emergency Procedures and Backup Plans\nGitHub Service Outages: - Monitor GitHub status page - Extend deadlines if necessary - Use manual review process as fallback - Communicate clearly with students\nScript Failures: - Revert to manual repository creation - Use provided troubleshooting guide - Contact technical support resources - Document issues for future improvement\nStudent Technical Difficulties: - Provide alternative access methods - Offer individual technical support - Consider accommodation for accessibility needs - Maintain flexible deadline policies\nRemember: The automation scripts handle the complex technical setup, allowing you to focus on the pedagogical aspects of peer review and student learning outcomes. Start small with one assignment, gather feedback, and iterate based on your experience and student needs.",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Detailed Process Walkthrough</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Details for Teachers</span>"
     ]
   },
   {
     "objectID": "05-overview-for-students.html",
     "href": "05-overview-for-students.html",
-    "title": "5  How the Peer Review Process Works",
+    "title": "5  Overview for Students",
     "section": "",
-    "text": "5.0.1 What Happens Behind the Scenes",
+    "text": "5.1 How the Peer Review Process Works",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>How the Peer Review Process Works</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Overview for Students</span>"
+    ]
+  },
+  {
+    "objectID": "05-overview-for-students.html#how-the-peer-review-process-works",
+    "href": "05-overview-for-students.html#how-the-peer-review-process-works",
+    "title": "5  Overview for Students",
+    "section": "",
+    "text": "5.1.1 What Happens Behind the Scenes\n\nYour teacher will create a private space (called a “repository” or “repo”) for your code on GitHub\nYour code will be automatically moved from Moodle to this private space\nTwo other students will be randomly chosen to review your code\nYou will also be chosen to review two other students’ code\nEverything is kept private - only you, your reviewers, and your teacher can see your code\n\n\n\n5.1.2 Your Role as a Reviewer\nWhen you’re reviewing someone else’s code, you’ll do two things:\n\n5.1.2.1 Part 1: Fill Out a Review Form (Required)\nYou’ll answer some questions about the code you’re reviewing, such as: - Is the code easy to read and understand? - Does the code seem to work correctly? - What did you like about this approach? - Do you have any suggestions for improvement? - Did you learn anything new from this code?\nHow to do this: 1. Click the link your teacher sends you to access the code 2. Look for a button or link that says “Issues” 3. Click “New Issue” 4. You’ll see a template with questions - just fill in your answers 5. Click “Submit new issue” when you’re done\n\n\n5.1.2.2 Part 2: Suggest Code Changes (Optional)\nIf you spot a bug or have an idea for improvement, you can suggest specific changes to the code.\nHow to do this: 1. Find the code file you want to change 2. Click the pencil icon (edit button) 3. Make your suggested changes 4. At the bottom, write a message explaining what you changed and why 5. Click “Propose changes” 6. Click “Create pull request” 7. Add a description of your suggestion and click “Create pull request”",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Overview for Students</span>"
     ]
   },
   {
     "objectID": "05-overview-for-students.html#after-the-review-receiving-feedback-on-your-code",
     "href": "05-overview-for-students.html#after-the-review-receiving-feedback-on-your-code",
-    "title": "5  How the Peer Review Process Works",
-    "section": "5.1 After the Review: Receiving Feedback on Your Code",
-    "text": "5.1 After the Review: Receiving Feedback on Your Code\n\n5.1.1 Where to Find Your Reviews\n\nGo to your private repository (your teacher will send you the link)\nClick on “Issues” to see the review forms your peers filled out\nClick on “Pull requests” to see any code changes they suggested\n\n\n\n5.1.2 How to Use the Feedback\n\nRead through all the feedback carefully\nAsk questions if something isn’t clear (you can reply to issues and pull requests)\nConsider implementing suggested improvements\nRemember: feedback is meant to help you learn, not to criticize you personally",
+    "title": "5  Overview for Students",
+    "section": "5.2 After the Review: Receiving Feedback on Your Code",
+    "text": "5.2 After the Review: Receiving Feedback on Your Code\n\n5.2.1 Where to Find Your Reviews\n\nGo to your private repository (your teacher will send you the link)\nClick on “Issues” to see the review forms your peers filled out\nClick on “Pull requests” to see any code changes they suggested\n\n\n\n5.2.2 How to Use the Feedback\n\nRead through all the feedback carefully\nAsk questions if something isn’t clear (you can reply to issues and pull requests)\nConsider implementing suggested improvements\nRemember: feedback is meant to help you learn, not to criticize you personally",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>How the Peer Review Process Works</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Overview for Students</span>"
     ]
   },
   {
     "objectID": "05-overview-for-students.html#tips",
     "href": "05-overview-for-students.html#tips",
-    "title": "5  How the Peer Review Process Works",
-    "section": "5.2 Tips",
-    "text": "5.2 Tips\n\n5.2.1 Common GitHub Terms Explained\n\nRepository (Repo): Your private folder containing your code\nIssue: A place to discuss problems, ask questions, or give feedback\nPull Request: A suggested change to the code\nBranch: Different versions of your code (don’t worry about this too much for now)\nCommit: Saving changes to your code\n\n\n\n5.2.2 Writing Good Reviews\n\nBe kind and constructive: Instead of “This is wrong,” try “Have you considered trying this approach?”\nBe specific: Point out exactly what you’re referring to\nHighlight good things too: If someone did something clever, tell them!\nAsk questions: “Why did you choose this method?” can lead to good discussions\n\n\n\n5.2.3 When You’re Stuck\n\nDon’t panic! GitHub can seem overwhelming at first\nAsk your teacher or classmates for help\nMost buttons are safe to click - you won’t break anything\nRemember that everyone is learning\n\n\n\n5.2.4 Making the Most of Feedback\n\nDon’t take criticism personally - it’s about the code, not you\nTry to understand why reviewers made their suggestions\nFeel free to ask follow-up questions\nUse the feedback to improve your next assignment",
+    "title": "5  Overview for Students",
+    "section": "5.3 Tips",
+    "text": "5.3 Tips\n\n5.3.1 Common GitHub Terms Explained\n\nRepository (Repo): Your private folder containing your code\nIssue: A place to discuss problems, ask questions, or give feedback\nPull Request: A suggested change to the code\nBranch: Different versions of your code (don’t worry about this too much for now)\nCommit: Saving changes to your code\n\n\n\n5.3.2 Writing Good Reviews\n\nBe kind and constructive: Instead of “This is wrong,” try “Have you considered trying this approach?”\nBe specific: Point out exactly what you’re referring to\nHighlight good things too: If someone did something clever, tell them!\nAsk questions: “Why did you choose this method?” can lead to good discussions\n\n\n\n5.3.3 When You’re Stuck\n\nDon’t panic! GitHub can seem overwhelming at first\nAsk your teacher or classmates for help\nMost buttons are safe to click - you won’t break anything\nRemember that everyone is learning\n\n\n\n5.3.4 Making the Most of Feedback\n\nDon’t take criticism personally - it’s about the code, not you\nTry to understand why reviewers made their suggestions\nFeel free to ask follow-up questions\nUse the feedback to improve your next assignment",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>How the Peer Review Process Works</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Overview for Students</span>"
     ]
   },
   {
     "objectID": "05-overview-for-students.html#getting-help",
     "href": "05-overview-for-students.html#getting-help",
-    "title": "5  How the Peer Review Process Works",
-    "section": "5.3 Getting Help",
-    "text": "5.3 Getting Help\nIf you get stuck: 1. Ask a classmate 2. Ask your teacher during lab sessions or through the Moodle forum 3. Check the GitHub help documentation 4. Remember: everyone finds GitHub confusing at first!\nRemember: The goal isn’t to become a GitHub expert overnight, but to learn from each other and improve your coding skills together!",
+    "title": "5  Overview for Students",
+    "section": "5.4 Getting Help",
+    "text": "5.4 Getting Help\nIf you get stuck: 1. Ask a classmate 2. Ask your teacher during lab sessions or through the Moodle forum 3. Check the GitHub help documentation 4. Remember: everyone finds GitHub confusing at first!\nRemember: The goal isn’t to become a GitHub expert overnight, but to learn from each other and improve your coding skills together!",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>How the Peer Review Process Works</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Overview for Students</span>"
     ]
   },
   {
     "objectID": "06-setup-for-students.html",
     "href": "06-setup-for-students.html",
-    "title": "6  Getting Started",
+    "title": "6  Set-up for Students",
     "section": "",
     "text": "6.0.1 Step 1: Create Your GitHub Account\nIf you already have one under some other email account and want to use it for the code review, then please go to the next section. Otherwise:\n\nGo to github.com\nClick “Sign up”\nChoose a username (tip: use something professional as you might use this for job applications later!)\nUse your UCL email address\nCreate a strong password\nVerify your email when GitHub sends you a message\n\n\n\n6.0.2 Step 2: Upload Your Assignment to Moodle\n\nSubmit your code assignment to Moodle as you normally would\nAlso include your GitHub username in your submission or as requested by your teacher",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Getting Started</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Set-up for Students</span>"
     ]
   }
 ]
