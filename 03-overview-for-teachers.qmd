@@ -1,3 +1,5 @@
+# Overview for Teachers
+
 ## Quick Start with Automation Scripts
 
 ### 1. Initial Setup (One-Time)

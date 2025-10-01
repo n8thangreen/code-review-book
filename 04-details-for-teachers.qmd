@@ -1,3 +1,5 @@
+# Details for Teachers
+
 ## Detailed Process Walkthrough
 
 ### GitHub Organization Setup

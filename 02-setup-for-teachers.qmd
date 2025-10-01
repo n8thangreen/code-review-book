@@ -1,3 +1,5 @@
+# Set-up for Teachers
+
 ## Prerequisites
 
 - GitHub account with ability to create organizations

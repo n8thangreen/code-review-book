@@ -1,4 +1,4 @@
-## Getting Started
+# Set-up for Students
 
 ### Step 1: Create Your GitHub Account
 
