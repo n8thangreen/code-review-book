@@ -1,1 +1,63 @@
 # FAQs
+
+## For Students:
+
+1. How many reviews do I do, and who reviews me?
+
+- Reviews are assigned randomly; the exact number is defined by the course. Please follow the lecturer’s latest announcements for any special arrangements.
+
+2. I can’t open the repo or didn’t receive an invite. What should I do?
+
+- First, you should confirm that you have been enrolled on Moodle and added to the course’s GitHub organisation. If you are still unable to access the repo, please provide your name, student ID, and GitHub username/email, to the lecturer or teaching team.
+
+3. Why use GitHub for peer review?
+
+- GitHub provides private repositories, standardised issue templates, and and an auditable history. This makes it easier to allocate tasks, keep reviewing evidence, and follow up. Becoming familiar with GitHub is also helpful for your future study and work.
+
+4. Can I comment on a single line or a specific code snippet?
+
+- Yes. In the file view, click the line number to get a URL with an anchor like #L42 or #L10-L20; paste that link into the Issue to point precisely. Press the y key on the file page to turn it into a permalink so it stays stable after edits. You can also paste a small snippet in the comment and briefly explain the context and suggestion. （please have check about this, since it's been a while since I last did some annotation and revisions like this.）
+
+5. Do I need to run someone else’s code locally?
+
+- Usually no——running untrusted code can be risky. If the template or course requires to execution, use a safe, isolated environment (e.g., virtual environment or container), and follow the course’s dependency notes and sample data. If you prefer not to run the code locally, you can use GitHub Codespaces in the browser. Always follow safety guidance in the course and avoid running suspicious scripts.
+
+6. I can’t see other students’ repos. Is that expected?
+
+- Yes. Repos are private by default and visible only to the author, assigned reviewers, and the teaching team.
+
+## For Lecturer:
+
+1. Can we start without having every student’s GitHub username?
+
+- Yes. We can directly invite students to the organisation or specific repos by email. They can accept with a GitHub account that has been verified, or sign up during acceptance.
+
+2. Students report “no access” or can’t open their repo, what should we check first?
+
+- In this case, confirm they are in the organisation (no pending invite) and that the invite went to a verified email. If needed, re-send the org/repo invite and add them directly to the repo.
+
+3. How do we control how many reviews each student gives or each submission receives?
+
+- Reviews per student and reviews per submission need to be exposed as parameters in your allocation script. Before full rollout, a dry-run on a small roster is needed to validate workload and connectivity. It's also recommended that anonce this information to all the students via email or posted in the moodle page so that they can check about it.
+
+4. Do we need anonymous peer review on GitHub?
+
+- By default, it is not anonymous because usernames are visible. If anonymity is required, use pseudonymous accounts or collect reviews via a separate form and post summaries back to the repo. 
+
+5. After the deadline students keep pushing changes, what version is graded?
+
+- By default, grading is based on the version at the stated deadline. Later changes may be remained for students to further learning, but they should not affect grading unless your course policy says otherwise.
+
+6. How do we monitor completion and chase late reviewers?
+
+- To moniter the completion states of students, you can periodically query Issue states across repos (open/closed, and checklist progress), generate a completion report, and mail-merge reminders with direct links to each student’s assigned review Issue.
+
+7. Some students withdrew or never accepted invites, how do we fix lopsided assignments?
+
+- You should mark those students inactive and reassign only the edges touching them. Keep all other assignments intact to minimise churn.
+
+8. What naming and visibility scheme is recommend?
+
+- We recommend to use private repos with a consistent pattern (e.g., module123-a1-s0001). Please announce the naming convention in the invite so that students and scripts can locate repos reliably.
+
+
