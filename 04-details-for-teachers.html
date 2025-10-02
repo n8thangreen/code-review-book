@@ -208,12 +208,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#github-organization-setup" id="toc-github-organization-setup" class="nav-link" data-scroll-target="#github-organization-setup"><span class="header-section-number">4.1.1</span> GitHub Organization Setup</a></li>
   <li><a href="#assessment-preparation" id="toc-assessment-preparation" class="nav-link" data-scroll-target="#assessment-preparation"><span class="header-section-number">4.1.2</span> Assessment Preparation</a></li>
   <li><a href="#student-data-collection" id="toc-student-data-collection" class="nav-link" data-scroll-target="#student-data-collection"><span class="header-section-number">4.1.3</span> Student Data Collection</a></li>
-  <li><a href="#file-transfer-workflow" id="toc-file-transfer-workflow" class="nav-link" data-scroll-target="#file-transfer-workflow"><span class="header-section-number">4.1.4</span> File Transfer Workflow</a></li>
-  <li><a href="#managing-the-review-process" id="toc-managing-the-review-process" class="nav-link" data-scroll-target="#managing-the-review-process"><span class="header-section-number">4.1.5</span> Managing the Review Process</a></li>
-  <li><a href="#assessment-integration" id="toc-assessment-integration" class="nav-link" data-scroll-target="#assessment-integration"><span class="header-section-number">4.1.6</span> Assessment Integration</a></li>
-  <li><a href="#troubleshooting-with-automation" id="toc-troubleshooting-with-automation" class="nav-link" data-scroll-target="#troubleshooting-with-automation"><span class="header-section-number">4.1.7</span> Troubleshooting with Automation</a></li>
-  <li><a href="#advanced-features" id="toc-advanced-features" class="nav-link" data-scroll-target="#advanced-features"><span class="header-section-number">4.1.8</span> Advanced Features</a></li>
-  <li><a href="#alternative-workflows" id="toc-alternative-workflows" class="nav-link" data-scroll-target="#alternative-workflows"><span class="header-section-number">4.1.9</span> Alternative Workflows</a></li>
+  <li><a href="#student-data-collection-1" id="toc-student-data-collection-1" class="nav-link" data-scroll-target="#student-data-collection-1"><span class="header-section-number">4.1.4</span> Student Data Collection</a></li>
+  <li><a href="#file-transfer-workflow" id="toc-file-transfer-workflow" class="nav-link" data-scroll-target="#file-transfer-workflow"><span class="header-section-number">4.1.5</span> File Transfer Workflow</a></li>
+  <li><a href="#managing-the-review-process" id="toc-managing-the-review-process" class="nav-link" data-scroll-target="#managing-the-review-process"><span class="header-section-number">4.1.6</span> Managing the Review Process</a></li>
+  <li><a href="#assessment-integration" id="toc-assessment-integration" class="nav-link" data-scroll-target="#assessment-integration"><span class="header-section-number">4.1.7</span> Assessment Integration</a></li>
+  <li><a href="#troubleshooting-with-automation" id="toc-troubleshooting-with-automation" class="nav-link" data-scroll-target="#troubleshooting-with-automation"><span class="header-section-number">4.1.8</span> Troubleshooting with Automation</a></li>
+  <li><a href="#advanced-features" id="toc-advanced-features" class="nav-link" data-scroll-target="#advanced-features"><span class="header-section-number">4.1.9</span> Advanced Features</a></li>
+  <li><a href="#alternative-workflows" id="toc-alternative-workflows" class="nav-link" data-scroll-target="#alternative-workflows"><span class="header-section-number">4.1.10</span> Alternative Workflows</a></li>
   </ul></li>
   <li><a href="#evaluation-and-improvement" id="toc-evaluation-and-improvement" class="nav-link" data-scroll-target="#evaluation-and-improvement"><span class="header-section-number">4.2</span> Evaluation and Improvement</a>
   <ul class="collapse">
@@ -261,34 +262,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="4.1" class="anchored" data-anchor-id="detailed-process-walkthrough"><span class="header-section-number">4.1</span> Detailed Process Walkthrough</h2>
 <section id="github-organization-setup" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="github-organization-setup"><span class="header-section-number">4.1.1</span> GitHub Organization Setup</h3>
-<p><strong>Create your organization (one-time):</strong> 1. Go to https://github.com/settings/organizations 2. Click “New organization” 3. Choose organization name: <code>UCL-[Department]-[Module]-[Year]</code> 4. Set to “Private” initially 5. Add description and contact information</p>
-<p><strong>The automation handles all repository creation and configuration.</strong></p>
+<p>To create your one-time organization, follow the steps below:</p>
+<ol type="1">
+<li>Go to https://github.com/settings/organizations</li>
+<li>Click “New organization”</li>
+<li>Choose organization name: <code>UCL-[Department]-[Module]-[Year]</code></li>
+<li>Set to “Private” initially</li>
+<li>Add description and contact information</li>
+</ol>
+<p>The automation handles <strong>all</strong> repository creation and configuration.</p>
 </section>
 <section id="assessment-preparation" class="level3" data-number="4.1.2">
 <h3 data-number="4.1.2" class="anchored" data-anchor-id="assessment-preparation"><span class="header-section-number">4.1.2</span> Assessment Preparation</h3>
 <p><strong>Before running automation, prepare:</strong></p>
-<p><strong>Issue Templates</strong> (automatically created): The scripts create structured peer review templates with sections for: - Code quality assessment - Correctness evaluation - Constructive feedback - Learning reflections</p>
-<p><strong>Marking Criteria Integration:</strong> Customize the issue template in <code>github_functions.R</code> to align with your specific marking criteria:</p>
+<p><strong>Issue Templates</strong> (automatically created):</p>
+<p>The scripts create structured peer review templates with sections for:</p>
+<ul>
+<li>Code quality assessment</li>
+<li>Correctness evaluation</li>
+<li>Constructive feedback</li>
+<li>Learning reflections</li>
+</ul>
+<p><strong>Marking Criteria Integration:</strong></p>
+<p>Customize the issue template in <code>github_functions.R</code> to align with your specific marking criteria:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Edit the peer_review_template variable to match your assessment goals</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Assignment Instructions:</strong> Prepare clear instructions that reference: - Learning objectives for peer review - Timeline and deadlines - Technical support resources - Assessment weighting (if applicable)</p>
+<p><strong>Assignment Instructions:</strong></p>
+<p>Prepare clear instructions that reference:</p>
+<ul>
+<li>Learning objectives for peer review</li>
+<li>Timeline and deadlines</li>
+<li>Technical support resources</li>
+<li>Assessment weighting (if applicable)</li>
+</ul>
 </section>
 <section id="student-data-collection" class="level3" data-number="4.1.3">
 <h3 data-number="4.1.3" class="anchored" data-anchor-id="student-data-collection"><span class="header-section-number">4.1.3</span> Student Data Collection</h3>
 <p><strong>Collect GitHub usernames efficiently:</strong></p>
-<p><strong>Option 1: Moodle Survey</strong> Create a Moodle survey with: - “GitHub username” text field - Instructions for creating GitHub accounts - Link to GitHub Education benefits</p>
-<p><strong>Option 2: Submission Requirement</strong> Include GitHub username as part of the assignment submission requirements.</p>
-<p><strong>Option 3: Lab Session Collection</strong> Collect usernames during the first computer lab session.</p>
 </section>
-<section id="file-transfer-workflow" class="level3" data-number="4.1.4">
-<h3 data-number="4.1.4" class="anchored" data-anchor-id="file-transfer-workflow"><span class="header-section-number">4.1.4</span> File Transfer Workflow</h3>
+<section id="student-data-collection-1" class="level3" data-number="4.1.4">
+<h3 data-number="4.1.4" class="anchored" data-anchor-id="student-data-collection-1"><span class="header-section-number">4.1.4</span> Student Data Collection</h3>
+<p>Collect GitHub usernames at the start of the module.</p>
+<p><strong>Option 1 — Moodle Survey</strong><br>
+Create a Moodle survey with:</p>
+<ul>
+<li><strong>“GitHub username”</strong> text field<br>
+</li>
+<li>Instructions for creating GitHub accounts</li>
+<li>Link to GitHub Education benefits</li>
+</ul>
+<p><strong>Option 2 — Submission Requirement</strong></p>
+<p>Include GitHub username as part of the assignment submission requirements.</p>
+<p><strong>Option 3 — Lab Session Collection</strong></p>
+<p>Collect usernames during the first computer lab session.</p>
+</section>
+<section id="file-transfer-workflow" class="level3" data-number="4.1.5">
+<h3 data-number="4.1.5" class="anchored" data-anchor-id="file-transfer-workflow"><span class="header-section-number">4.1.5</span> File Transfer Workflow</h3>
 <p><strong>Automated Process (Recommended):</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Place files in submissions/[student_id]/ folders</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the main automation script</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"main_automation_script.R"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Manual Process (Backup Method):</strong> If automation fails, you can still upload files manually: 1. Create repositories individually 2. Upload files through GitHub web interface 3. Set permissions manually 4. Generate assignment lists manually</p>
+<p><strong>Manual Process (Backup Method):</strong></p>
+<p>If automation fails, you can still upload files manually: 1. Create repositories individually 2. Upload files through GitHub web interface 3. Set permissions manually 4. Generate assignment lists manually</p>
 </section>
-<section id="managing-the-review-process" class="level3" data-number="4.1.5">
-<h3 data-number="4.1.5" class="anchored" data-anchor-id="managing-the-review-process"><span class="header-section-number">4.1.5</span> Managing the Review Process</h3>
+<section id="managing-the-review-process" class="level3" data-number="4.1.6">
+<h3 data-number="4.1.6" class="anchored" data-anchor-id="managing-the-review-process"><span class="header-section-number">4.1.6</span> Managing the Review Process</h3>
 <p><strong>Monitoring Student Engagement:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run daily or weekly progress checks</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"monitor_progress.R"</span>)</span>
@@ -298,12 +335,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># - Completion rate summaries</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># - Individual student progress</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># - Reminder emails for laggards</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Facilitating Quality Reviews:</strong> - Monitor issue creation across repositories - Look for generic or unconstructive feedback - Highlight examples of excellent reviews to the class - Provide additional guidance if review quality is poor</p>
+<p><strong>Facilitating Quality Reviews:</strong></p>
+<ul>
+<li>Monitor issue creation across repositories</li>
+<li>Look for generic or unconstructive feedback</li>
+<li>Highlight examples of excellent reviews to the class</li>
+<li>Provide additional guidance if review quality is poor</li>
+</ul>
 </section>
-<section id="assessment-integration" class="level3" data-number="4.1.6">
-<h3 data-number="4.1.6" class="anchored" data-anchor-id="assessment-integration"><span class="header-section-number">4.1.6</span> Assessment Integration</h3>
+<section id="assessment-integration" class="level3" data-number="4.1.7">
+<h3 data-number="4.1.7" class="anchored" data-anchor-id="assessment-integration"><span class="header-section-number">4.1.7</span> Assessment Integration</h3>
 <p><strong>Assessing Peer Review Participation:</strong></p>
-<p><strong>Quantitative Measures:</strong> - Completion of required review templates - Timeliness of feedback submission - Engagement with issue discussions</p>
+<p><strong>Quantitative Measures:</strong></p>
+<ul>
+<li>Completion of required review templates</li>
+<li>Timeliness of feedback submission</li>
+<li>Engagement with issue discussions</li>
+</ul>
 <p><strong>Qualitative Assessment:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use monitoring script to extract review content</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Assess based on:</span></span>
@@ -312,8 +360,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># - Helpful suggestions provided</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># - Professional communication tone</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="troubleshooting-with-automation" class="level3" data-number="4.1.7">
-<h3 data-number="4.1.7" class="anchored" data-anchor-id="troubleshooting-with-automation"><span class="header-section-number">4.1.7</span> Troubleshooting with Automation</h3>
+<section id="troubleshooting-with-automation" class="level3" data-number="4.1.8">
+<h3 data-number="4.1.8" class="anchored" data-anchor-id="troubleshooting-with-automation"><span class="header-section-number">4.1.8</span> Troubleshooting with Automation</h3>
 <p><strong>Common Issues and Solutions:</strong></p>
 <p><strong>Script Failures:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check configuration</span></span>
@@ -322,29 +370,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Test GitHub connection</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">test_github_connection</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Student Access Problems:</strong> - Verify GitHub usernames in <code>student_list.csv</code> - Check repository permissions in GitHub organization - Use monitoring script to identify access issues</p>
-<p><strong>File Upload Issues:</strong> - Check file sizes (GitHub limit: 100MB per file) - Verify file paths in submissions folders - Review console output for specific error messages</p>
+<p><strong>Student Access Problems:</strong></p>
+<ul>
+<li>Verify GitHub usernames in <code>student_list.csv</code></li>
+<li>Check repository permissions in GitHub organization</li>
+<li>Use monitoring script to identify access issues</li>
+</ul>
+<p><strong>File Upload Issues:</strong></p>
+<ul>
+<li>Check file sizes (GitHub limit: 100MB per file)</li>
+<li>Verify file paths in submissions folders</li>
+<li>Review console output for specific error messages</li>
+</ul>
 <p><strong>Incomplete Reviews:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate targeted reminders</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"monitor_progress.R"</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">run_progress_check</span>()  <span class="co"># Creates reminder emails automatically</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="advanced-features" class="level3" data-number="4.1.8">
-<h3 data-number="4.1.8" class="anchored" data-anchor-id="advanced-features"><span class="header-section-number">4.1.8</span> Advanced Features</h3>
-<p><strong>Customizing Review Assignments:</strong> Edit <code>file_management.R</code> to modify reviewer assignment logic:</p>
+<section id="advanced-features" class="level3" data-number="4.1.9">
+<h3 data-number="4.1.9" class="anchored" data-anchor-id="advanced-features"><span class="header-section-number">4.1.9</span> Advanced Features</h3>
+<p><strong>Customizing Review Assignments:</strong></p>
+<p>Edit <code>file_management.R</code> to modify reviewer assignment logic:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change number of reviewers per student</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">assign_peer_reviewers</span>(students, <span class="at">reviews_per_student =</span> <span class="dv">3</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Implement stratified assignment (e.g., by ability level)</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Custom logic can be added to the assign_peer_reviewers function</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Integration with Continuous Assessment:</strong> - Use repository activity for participation grades - Track improvement over multiple assignments - Monitor collaborative discussion quality</p>
-<p><strong>Scaling for Large Classes:</strong> The automation scripts handle classes up to 200+ students efficiently: - Batch processing minimizes API rate limits - Progress monitoring scales automatically - Email generation handles large volumes</p>
+<p><strong>Integration with Continuous Assessment:</strong></p>
+<ul>
+<li>Use repository activity for participation grades</li>
+<li>Track improvement over multiple assignments</li>
+<li>Monitor collaborative discussion quality</li>
+</ul>
+<p><strong>Scaling for Large Classes:</strong></p>
+<p>The automation scripts handle classes up to 200+ students efficiently: - Batch processing minimizes API rate limits - Progress monitoring scales automatically - Email generation handles large volumes</p>
 </section>
-<section id="alternative-workflows" class="level3" data-number="4.1.9">
-<h3 data-number="4.1.9" class="anchored" data-anchor-id="alternative-workflows"><span class="header-section-number">4.1.9</span> Alternative Workflows</h3>
-<p><strong>For Smaller Classes (&lt;20 students):</strong> Consider having all students review all submissions for maximum learning.</p>
-<p><strong>For Advanced Students:</strong> - Enable pull request reviews in addition to issues - Encourage code improvement suggestions - Allow collaborative debugging sessions</p>
-<p><strong>For Assessment-Heavy Modules:</strong> - Use multiple rounds of peer review - Implement peer review of peer reviews (meta-review) - Create portfolio-based assessment incorporating peer feedback</p>
+<section id="alternative-workflows" class="level3" data-number="4.1.10">
+<h3 data-number="4.1.10" class="anchored" data-anchor-id="alternative-workflows"><span class="header-section-number">4.1.10</span> Alternative Workflows</h3>
+<p><strong>For Smaller Classes (&lt;20 students):</strong></p>
+<p>Consider having all students review all submissions for maximum learning.</p>
+<p><strong>For Advanced Students:</strong></p>
+<ul>
+<li>Enable pull request reviews in addition to issues</li>
+<li>Encourage code improvement suggestions</li>
+<li>Allow collaborative debugging sessions</li>
+</ul>
+<p><strong>For Assessment-Heavy Modules:</strong></p>
+<ul>
+<li>Use multiple rounds of peer review</li>
+<li>Implement peer review of peer reviews (meta-review)</li>
+<li>Create portfolio-based assessment incorporating peer feedback</li>
+</ul>
 </section>
 </section>
 <section id="evaluation-and-improvement" class="level2" data-number="4.2">
@@ -357,13 +433,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - Engagement timing</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - Issue/PR creation patterns</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># - Student interaction levels</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Student Feedback:</strong> - Post-assignment surveys about GitHub experience - Focus groups on peer review value - Comparison with traditional feedback methods</p>
-<p><strong>Learning Outcomes Assessment:</strong> - Code quality improvement over semester - Development of collaborative skills - Professional tool proficiency</p>
+<p><strong>Student Feedback:</strong></p>
+<ul>
+<li>Post-assignment surveys about GitHub experience</li>
+<li>Focus groups on peer review value</li>
+<li>Comparison with traditional feedback methods</li>
+</ul>
+<p><strong>Learning Outcomes Assessment:</strong></p>
+<ul>
+<li>Code quality improvement over semester</li>
+<li>Development of collaborative skills</li>
+<li>Professional tool proficiency</li>
+</ul>
 </section>
 <section id="iterative-improvements" class="level3" data-number="4.2.2">
 <h3 data-number="4.2.2" class="anchored" data-anchor-id="iterative-improvements"><span class="header-section-number">4.2.2</span> Iterative Improvements</h3>
-<p><strong>Based on Student Feedback:</strong> - Adjust issue template questions - Modify review assignment algorithms - Update student guidance materials - Refine technical support processes</p>
-<p><strong>Based on Teaching Observations:</strong> - Identify common student misconceptions - Adjust scaffold levels for GitHub introduction - Modify assessment weightings - Update marking criteria</p>
+<p><strong>Based on Student Feedback:</strong></p>
+<ul>
+<li>Adjust issue template questions</li>
+<li>Modify review assignment algorithms</li>
+<li>Update student guidance materials</li>
+<li>Refine technical support processes</li>
+</ul>
+<p><strong>Based on Teaching Observations:</strong></p>
+<ul>
+<li>Identify common student misconceptions</li>
+<li>Adjust scaffold levels for GitHub introduction</li>
+<li>Modify assessment weightings</li>
+<li>Update marking criteria</li>
+</ul>
 </section>
 </section>
 <section id="resource-requirements" class="level2" data-number="4.3">
@@ -379,13 +477,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="time-investment" class="level3" data-number="4.3.2">
 <h3 data-number="4.3.2" class="anchored" data-anchor-id="time-investment"><span class="header-section-number">4.3.2</span> Time Investment</h3>
-<p><strong>Initial Setup (First Time):</strong> - Script configuration: 30 minutes - GitHub organization setup: 15 minutes - Student data preparation: 45 minutes - <strong>Total: ~1.5 hours</strong></p>
-<p><strong>Per Assignment (Ongoing):</strong> - File organization: 15 minutes - Running automation: 5 minutes - Monitoring and reminders: 10 minutes weekly - <strong>Total: ~20 minutes + weekly monitoring</strong></p>
+<p><strong>Initial Setup (First Time):</strong></p>
+<ul>
+<li>Script configuration: 30 minutes</li>
+<li>GitHub organization setup: 15 minutes</li>
+<li>Student data preparation: 45 minutes</li>
+<li><strong>Total: ~1.5 hours</strong></li>
+</ul>
+<p><strong>Per Assignment (Ongoing):</strong></p>
+<ul>
+<li>File organization: 15 minutes</li>
+<li>Running automation: 5 minutes</li>
+<li>Monitoring and reminders: 10 minutes weekly</li>
+<li><strong>Total: ~20 minutes + weekly monitoring</strong></li>
+</ul>
 </section>
 <section id="support-requirements" class="level3" data-number="4.3.3">
 <h3 data-number="4.3.3" class="anchored" data-anchor-id="support-requirements"><span class="header-section-number">4.3.3</span> Support Requirements</h3>
-<p><strong>For Students:</strong> - Provide comprehensive student guide - Offer optional GitHub tutorial sessions - Establish peer mentoring system - Create backup support during lab sessions</p>
-<p><strong>For Teaching Staff:</strong> - Train additional instructors on script usage - Establish backup procedures for technical failures - Document customizations and local adaptations - Plan for software updates and maintenance</p>
+<p><strong>For Students:</strong></p>
+<ul>
+<li>Provide comprehensive student guide</li>
+<li>Offer optional GitHub tutorial sessions</li>
+<li>Establish peer mentoring system</li>
+<li>Create backup support during lab sessions</li>
+</ul>
+<p><strong>For Teaching Staff:</strong></p>
+<ul>
+<li>Train additional instructors on script usage</li>
+<li>Establish backup procedures for technical failures</li>
+<li>Document customizations and local adaptations</li>
+<li>Plan for software updates and maintenance</li>
+</ul>
 </section>
 </section>
 <section id="success-metrics-and-expectations" class="level2" data-number="4.4">
@@ -415,9 +537,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="emergency-procedures-and-backup-plans" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="emergency-procedures-and-backup-plans"><span class="header-section-number">4.5</span> Emergency Procedures and Backup Plans</h2>
-<p><strong>GitHub Service Outages:</strong> - Monitor GitHub status page - Extend deadlines if necessary - Use manual review process as fallback - Communicate clearly with students</p>
-<p><strong>Script Failures:</strong> - Revert to manual repository creation - Use provided troubleshooting guide - Contact technical support resources - Document issues for future improvement</p>
-<p><strong>Student Technical Difficulties:</strong> - Provide alternative access methods - Offer individual technical support - Consider accommodation for accessibility needs - Maintain flexible deadline policies</p>
+<p><strong>GitHub Service Outages:</strong></p>
+<ul>
+<li>Monitor GitHub status page</li>
+<li>Extend deadlines if necessary</li>
+<li>Use manual review process as fallback</li>
+<li>Communicate clearly with students</li>
+</ul>
+<p><strong>Script Failures:</strong></p>
+<ul>
+<li>Revert to manual repository creation</li>
+<li>Use provided troubleshooting guide</li>
+<li>Contact technical support resources</li>
+<li>Document issues for future improvement</li>
+</ul>
+<p><strong>Student Technical Difficulties:</strong></p>
+<ul>
+<li>Provide alternative access methods</li>
+<li>Offer individual technical support</li>
+<li>Consider accommodation for accessibility needs</li>
+<li>Maintain flexible deadline policies</li>
+</ul>
 <p>Remember: The automation scripts handle the complex technical setup, allowing you to focus on the pedagogical aspects of peer review and student learning outcomes. Start small with one assignment, gather feedback, and iterate based on your experience and student needs.</p>
 
 
