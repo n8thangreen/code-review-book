@@ -162,8 +162,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#for-students" id="toc-for-students" class="nav-link active" data-scroll-target="#for-students"><span class="header-section-number">7.1</span> For Students:</a></li>
+  <li><a href="#for-lecturer" id="toc-for-lecturer" class="nav-link" data-scroll-target="#for-lecturer"><span class="header-section-number">7.2</span> For Lecturer:</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -187,8 +194,98 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="for-students" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="for-students"><span class="header-section-number">7.1</span> For Students:</h2>
+<ol type="1">
+<li>How many reviews do I do, and who reviews me?</li>
+</ol>
+<ul>
+<li>Reviews are assigned randomly; the exact number is defined by the course. Please follow the lecturer’s latest announcements for any special arrangements.</li>
+</ul>
+<ol start="2" type="1">
+<li>I can’t open the repo or didn’t receive an invite. What should I do?</li>
+</ol>
+<ul>
+<li>First, you should confirm that you have been enrolled on Moodle and added to the course’s GitHub organisation. If you are still unable to access the repo, please provide your name, student ID, and GitHub username/email, to the lecturer or teaching team.</li>
+</ul>
+<ol start="3" type="1">
+<li>Why use GitHub for peer review?</li>
+</ol>
+<ul>
+<li>GitHub provides private repositories, standardised issue templates, and and an auditable history. This makes it easier to allocate tasks, keep reviewing evidence, and follow up. Becoming familiar with GitHub is also helpful for your future study and work.</li>
+</ul>
+<ol start="4" type="1">
+<li>Can I comment on a single line or a specific code snippet?</li>
+</ol>
+<ul>
+<li>Yes. In the file view, click the line number to get a URL with an anchor like #L42 or #L10-L20; paste that link into the Issue to point precisely. Press the y key on the file page to turn it into a permalink so it stays stable after edits. You can also paste a small snippet in the comment and briefly explain the context and suggestion. （please have check about this, since it’s been a while since I last did some annotation and revisions like this.）</li>
+</ul>
+<ol start="5" type="1">
+<li>Do I need to run someone else’s code locally?</li>
+</ol>
+<ul>
+<li>Usually no——running untrusted code can be risky. If the template or course requires to execution, use a safe, isolated environment (e.g., virtual environment or container), and follow the course’s dependency notes and sample data. If you prefer not to run the code locally, you can use GitHub Codespaces in the browser. Always follow safety guidance in the course and avoid running suspicious scripts.</li>
+</ul>
+<ol start="6" type="1">
+<li>I can’t see other students’ repos. Is that expected?</li>
+</ol>
+<ul>
+<li>Yes. Repos are private by default and visible only to the author, assigned reviewers, and the teaching team.</li>
+</ul>
+</section>
+<section id="for-lecturer" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="for-lecturer"><span class="header-section-number">7.2</span> For Lecturer:</h2>
+<ol type="1">
+<li>Can we start without having every student’s GitHub username?</li>
+</ol>
+<ul>
+<li>Yes. We can directly invite students to the organisation or specific repos by email. They can accept with a GitHub account that has been verified, or sign up during acceptance.</li>
+</ul>
+<ol start="2" type="1">
+<li>Students report “no access” or can’t open their repo, what should we check first?</li>
+</ol>
+<ul>
+<li>In this case, confirm they are in the organisation (no pending invite) and that the invite went to a verified email. If needed, re-send the org/repo invite and add them directly to the repo.</li>
+</ul>
+<ol start="3" type="1">
+<li>How do we control how many reviews each student gives or each submission receives?</li>
+</ol>
+<ul>
+<li>Reviews per student and reviews per submission need to be exposed as parameters in your allocation script. Before full rollout, a dry-run on a small roster is needed to validate workload and connectivity. It’s also recommended that anonce this information to all the students via email or posted in the moodle page so that they can check about it.</li>
+</ul>
+<ol start="4" type="1">
+<li>Do we need anonymous peer review on GitHub?</li>
+</ol>
+<ul>
+<li>By default, it is not anonymous because usernames are visible. If anonymity is required, use pseudonymous accounts or collect reviews via a separate form and post summaries back to the repo.</li>
+</ul>
+<ol start="5" type="1">
+<li>After the deadline students keep pushing changes, what version is graded?</li>
+</ol>
+<ul>
+<li>By default, grading is based on the version at the stated deadline. Later changes may be remained for students to further learning, but they should not affect grading unless your course policy says otherwise.</li>
+</ul>
+<ol start="6" type="1">
+<li>How do we monitor completion and chase late reviewers?</li>
+</ol>
+<ul>
+<li>To moniter the completion states of students, you can periodically query Issue states across repos (open/closed, and checklist progress), generate a completion report, and mail-merge reminders with direct links to each student’s assigned review Issue.</li>
+</ul>
+<ol start="7" type="1">
+<li>Some students withdrew or never accepted invites, how do we fix lopsided assignments?</li>
+</ol>
+<ul>
+<li>You should mark those students inactive and reassign only the edges touching them. Keep all other assignments intact to minimise churn.</li>
+</ul>
+<ol start="8" type="1">
+<li>What naming and visibility scheme is recommend?</li>
+</ol>
+<ul>
+<li>We recommend to use private repos with a consistent pattern (e.g., module123-a1-s0001). Please announce the naming convention in the invite so that students and scripts can locate repos reliably.</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
