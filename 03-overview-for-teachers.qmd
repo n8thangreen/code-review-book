@@ -1,4 +1,5 @@
 # Overview for Teachers
+
 This section provides a **step-by-step quick start** by using the automation scripts.  
 Follow the five steps below to move from setup to monitoring.
 
