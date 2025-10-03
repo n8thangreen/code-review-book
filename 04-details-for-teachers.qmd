@@ -305,9 +305,9 @@ Consider having all students review all submissions for maximum learning.
 
 ### Short-term Indicators
 
-- >90% successful repository setup
-- >80% completion of peer reviews within deadline
-- <5% technical support requests requiring instructor intervention
+- > 90% successful repository setup
+- > 80% completion of peer reviews within deadline
+- < 5% technical support requests requiring instructor intervention
 - Positive student feedback on learning experience
 
 ### Long-term Outcomes
