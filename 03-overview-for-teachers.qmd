@@ -1,10 +1,14 @@
 # Overview for Teachers
+This section provides a **step-by-step quick start** by using the automation scripts.  
+Follow the five steps below to move from setup to monitoring.
 
+---
 ## Quick Start with Automation Scripts
 
 ### 1. Initial Setup (One-Time)
 
-**Download and organize the automation scripts:**
+The first step is to download and organize all the automation scripts, including:
+
 ```
 project_folder/
 ├── setup_config.R
@@ -15,7 +19,7 @@ project_folder/
 └── README.md
 ```
 
-**Run the setup script:**
+After all files are downloaded, run the **setup script**:
 
 ```r
 # In RStudio/R console
@@ -24,6 +28,7 @@ run_setup()
 ```
 
 This automated setup will:
+
 - Install required R packages
 - Guide you through GitHub token creation
 - Create necessary folder structure
@@ -32,7 +37,8 @@ This automated setup will:
 
 ### 2. Prepare Your Data
 
-**Create your student list (`student_list.csv`):**
+Create your student list (`student_list.csv`) in the following format:
+
 ```csv
 student_id,github_username,ucl_email,name
 12345,alice_github,alice.smith@ucl.ac.uk,Alice Smith
@@ -40,8 +46,8 @@ student_id,github_username,ucl_email,name
 12347,carol_white,carol.white@ucl.ac.uk,Carol White
 ```
 
-**Organize student submissions:**
-Download submissions from Moodle and organize them in folders:
+To organize student submissions, download their submissions from Moodle and organize them in folders:
+
 ```
 submissions/
 ├── 12345/
@@ -55,6 +61,7 @@ submissions/
 ### 3. Run the Automation
 
 **Configure the main script:**
+
 Edit these variables in `main_automation_script.R`:
 ```r
 ORG_NAME <- "UCL-StatSci-STAT0001-2025"      # Your GitHub organization
@@ -62,43 +69,45 @@ ASSIGNMENT_NAME <- "assignment-1"            # Current assignment
 LOCAL_SUBMISSIONS_PATH <- "submissions/"     # Path to submissions
 ```
 
-**Execute the automation:**
+Then, execute the following automation:
 ```r
 source("main_automation_script.R")
 ```
 
-**What happens automatically:**
-- ✅ Creates private repositories for each student
-- ✅ Sets up reviewer branches and issue templates
-- ✅ Uploads all student files
-- ✅ Randomly assigns peer reviewers (2 per student)
-- ✅ Sets repository permissions
-- ✅ Generates email templates and distribution URLs
+What will happen automatically:
+
+- ✅ private repositories are created for each student
+- ✅ reviewer branches and issue templates are set up
+- ✅ all student files are uploaded
+- ✅ peer reviewers (2 per student) are randomly assigned
+- ✅ repository permissions are set
+- ✅ email templates and distribution URLs are generated
 
 ### 4. Distribute Access Information
 
-The script generates several files:
+By this point, the script would have generated several files. They are:
+
 - `student_repo_links.csv` - Repository URLs for each student
 - `email_templates/` - Personalized emails for each student
 - `reviewer_assignments.csv` - Complete assignment matrix
 
-**Send emails to students:**
-Use the generated email templates or import the CSV data into your email system for mail merge.
+You then need to **send emails to students** by either using the generated email templates, or import the CSV data into your email system for mail merge.
 
 ### 5. Monitor Progress
 
-**Track completion in real-time:**
+To track completion in real-time, run:
+
 ```r
 source("monitor_progress.R")
 report <- run_progress_check()
 ```
 
-**What you get:**
+What you will get:
+
 - Completion rates across all students
 - Visual progress charts
 - Detailed analytics
 - Automated reminder emails for incomplete reviews
 
 
-
-The section below is a very detailed explanation of the workflow. If you have any trouble executing the above procedure, please refer to the section below, and the `README.md` document under the setup folder.
+Next section is a detailed explanation of the workflow. If you have any trouble executing the above procedure, please refer to it and the `README.md` document under the `setup` folder.
