@@ -3,53 +3,61 @@
 ## How the Peer Review Process Works
 
 ### What Happens Behind the Scenes
+
 1. Your teacher will create a private space (called a "repository" or "repo") for your code on GitHub
 2. Your code will be automatically moved from Moodle to this private space
-3. Two other students will be randomly chosen to review your code
-4. You will also be chosen to review two other students' code
-5. Everything is kept private - only you, your reviewers, and your teacher can see your code
+3. Two other students will be randomly assigned to review your code
+4. You will also be chosen to review the works of two other students
+5. Everything is kept private - only you, your reviewers, and your teacher can see your code!
 
 ### Your Role as a Reviewer
 
 When you're reviewing someone else's code, you'll do two things:
 
 #### Part 1: Fill Out a Review Form (Required)
-You'll answer some questions about the code you're reviewing, such as:
+
+You are expected to answer some questions about the code you're reviewing, such as:
+
 - Is the code easy to read and understand?
 - Does the code seem to work correctly?
-- What did you like about this approach?
+- What do you appreciate about this approach?
 - Do you have any suggestions for improvement?
-- Did you learn anything new from this code?
+- Have you learned anything new from this code?
 
 **How to do this:**
+
 1. Click the link your teacher sends you to access the code
 2. Look for a button or link that says "Issues" 
 3. Click "New Issue"
 4. You'll see a template with questions - just fill in your answers
-5. Click "Submit new issue" when you're done
+5. When you're finished, click "Submit new issue" to upload it
 
 #### Part 2: Suggest Code Changes (Optional)
+
 If you spot a bug or have an idea for improvement, you can suggest specific changes to the code.
 
 **How to do this:**
+
 1. Find the code file you want to change
-2. Click the pencil icon (edit button) 
+2. Click the edit button (pencil icon) 
 3. Make your suggested changes
-4. At the bottom, write a message explaining what you changed and why
+4. Write a message at the bottom, explaining what you have changed and why
 5. Click "Propose changes"
 6. Click "Create pull request"
-7. Add a description of your suggestion and click "Create pull request"
+7. Add a description of your suggestion, and click "Create pull request" to upload it
 
 
 
 ## After the Review: Receiving Feedback on Your Code
 
 ### Where to Find Your Reviews
+
 1. Go to your private repository (your teacher will send you the link)
 2. Click on "Issues" to see the review forms your peers filled out
 3. Click on "Pull requests" to see any code changes they suggested
 
 ### How to Use the Feedback
+
 - Read through all the feedback carefully
 - Ask questions if something isn't clear (you can reply to issues and pull requests)
 - Consider implementing suggested improvements
@@ -68,18 +76,21 @@ If you spot a bug or have an idea for improvement, you can suggest specific chan
 - **Commit**: Saving changes to your code
 
 ### Writing Good Reviews
+
 - **Be kind and constructive**: Instead of "This is wrong," try "Have you considered trying this approach?"
 - **Be specific**: Point out exactly what you're referring to
 - **Highlight good things too**: If someone did something clever, tell them!
 - **Ask questions**: "Why did you choose this method?" can lead to good discussions
 
 ### When You're Stuck
+
 - Don't panic! GitHub can seem overwhelming at first
 - Ask your teacher or classmates for help
 - Most buttons are safe to click - you won't break anything
 - Remember that everyone is learning
 
 ### Making the Most of Feedback
+
 - Don't take criticism personally - it's about the code, not you
 - Try to understand why reviewers made their suggestions
 - Feel free to ask follow-up questions
@@ -90,6 +101,7 @@ If you spot a bug or have an idea for improvement, you can suggest specific chan
 ## Getting Help
 
 If you get stuck:
+
 1. Ask a classmate
 2. Ask your teacher during lab sessions or through the Moodle forum
 3. Check the GitHub help documentation
