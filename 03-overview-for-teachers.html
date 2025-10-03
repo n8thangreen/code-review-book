@@ -236,11 +236,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>This section provides a <strong>step-by-step quick start</strong> by using the automation scripts.<br>
+Follow the five steps below to move from setup to monitoring.</p>
+<hr>
 <section id="quick-start-with-automation-scripts" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="quick-start-with-automation-scripts"><span class="header-section-number">3.1</span> Quick Start with Automation Scripts</h2>
 <section id="initial-setup-one-time" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="initial-setup-one-time"><span class="header-section-number">3.1.1</span> 1. Initial Setup (One-Time)</h3>
-<p><strong>Download and organize the automation scripts:</strong></p>
+<p>The first step is to download and organize all the automation scripts, including:</p>
 <pre><code>project_folder/
 ├── setup_config.R
 ├── main_automation_script.R
@@ -248,20 +251,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ├── file_management.R
 ├── monitor_progress.R
 └── README.md</code></pre>
-<p><strong>Run the setup script:</strong></p>
+<p>After all files are downloaded, run the <strong>setup script</strong>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In RStudio/R console</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"setup_config.R"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">run_setup</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This automated setup will: - Install required R packages - Guide you through GitHub token creation - Create necessary folder structure - Generate sample configuration files - Validate your setup</p>
+<p>This automated setup will:</p>
+<ul>
+<li>Install required R packages</li>
+<li>Guide you through GitHub token creation</li>
+<li>Create necessary folder structure</li>
+<li>Generate sample configuration files</li>
+<li>Validate your setup</li>
+</ul>
 </section>
 <section id="prepare-your-data" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="prepare-your-data"><span class="header-section-number">3.1.2</span> 2. Prepare Your Data</h3>
-<p><strong>Create your student list (<code>student_list.csv</code>):</strong></p>
+<p>Create your student list (<code>student_list.csv</code>) in the following format:</p>
 <pre class="csv"><code>student_id,github_username,ucl_email,name
 12345,alice_github,alice.smith@ucl.ac.uk,Alice Smith
 12346,bob_jones,bob.jones@ucl.ac.uk,Bob Jones
 12347,carol_white,carol.white@ucl.ac.uk,Carol White</code></pre>
-<p><strong>Organize student submissions:</strong> Download submissions from Moodle and organize them in folders:</p>
+<p>To organize student submissions, download their submissions from Moodle and organize them in folders:</p>
 <pre><code>submissions/
 ├── 12345/
 │   ├── analysis.R
@@ -272,26 +282,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="run-the-automation" class="level3" data-number="3.1.3">
 <h3 data-number="3.1.3" class="anchored" data-anchor-id="run-the-automation"><span class="header-section-number">3.1.3</span> 3. Run the Automation</h3>
-<p><strong>Configure the main script:</strong> Edit these variables in <code>main_automation_script.R</code>:</p>
+<p><strong>Configure the main script:</strong></p>
+<p>Edit these variables in <code>main_automation_script.R</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ORG_NAME <span class="ot">&lt;-</span> <span class="st">"UCL-StatSci-STAT0001-2025"</span>      <span class="co"># Your GitHub organization</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ASSIGNMENT_NAME <span class="ot">&lt;-</span> <span class="st">"assignment-1"</span>            <span class="co"># Current assignment</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>LOCAL_SUBMISSIONS_PATH <span class="ot">&lt;-</span> <span class="st">"submissions/"</span>     <span class="co"># Path to submissions</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Execute the automation:</strong></p>
+<p>Then, execute the following automation:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"main_automation_script.R"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>What happens automatically:</strong> - ✅ Creates private repositories for each student - ✅ Sets up reviewer branches and issue templates - ✅ Uploads all student files - ✅ Randomly assigns peer reviewers (2 per student) - ✅ Sets repository permissions - ✅ Generates email templates and distribution URLs</p>
+<p>What will happen automatically:</p>
+<ul>
+<li>✅ private repositories are created for each student</li>
+<li>✅ reviewer branches and issue templates are set up</li>
+<li>✅ all student files are uploaded</li>
+<li>✅ peer reviewers (2 per student) are randomly assigned</li>
+<li>✅ repository permissions are set</li>
+<li>✅ email templates and distribution URLs are generated</li>
+</ul>
 </section>
 <section id="distribute-access-information" class="level3" data-number="3.1.4">
 <h3 data-number="3.1.4" class="anchored" data-anchor-id="distribute-access-information"><span class="header-section-number">3.1.4</span> 4. Distribute Access Information</h3>
-<p>The script generates several files: - <code>student_repo_links.csv</code> - Repository URLs for each student - <code>email_templates/</code> - Personalized emails for each student - <code>reviewer_assignments.csv</code> - Complete assignment matrix</p>
-<p><strong>Send emails to students:</strong> Use the generated email templates or import the CSV data into your email system for mail merge.</p>
+<p>By this point, the script would have generated several files. They are:</p>
+<ul>
+<li><code>student_repo_links.csv</code> - Repository URLs for each student</li>
+<li><code>email_templates/</code> - Personalized emails for each student</li>
+<li><code>reviewer_assignments.csv</code> - Complete assignment matrix</li>
+</ul>
+<p>You then need to <strong>send emails to students</strong> by either using the generated email templates, or import the CSV data into your email system for mail merge.</p>
 </section>
 <section id="monitor-progress" class="level3" data-number="3.1.5">
 <h3 data-number="3.1.5" class="anchored" data-anchor-id="monitor-progress"><span class="header-section-number">3.1.5</span> 5. Monitor Progress</h3>
-<p><strong>Track completion in real-time:</strong></p>
+<p>To track completion in real-time, run:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"monitor_progress.R"</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>report <span class="ot">&lt;-</span> <span class="fu">run_progress_check</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>What you get:</strong> - Completion rates across all students - Visual progress charts - Detailed analytics - Automated reminder emails for incomplete reviews</p>
-<p>The section below is a very detailed explanation of the workflow. If you have any trouble executing the above procedure, please refer to the section below, and the <code>README.md</code> document under the setup folder.</p>
+<p>What you will get:</p>
+<ul>
+<li>Completion rates across all students</li>
+<li>Visual progress charts</li>
+<li>Detailed analytics</li>
+<li>Automated reminder emails for incomplete reviews</li>
+</ul>
+<p>Next section is a detailed explanation of the workflow. If you have any trouble executing the above procedure, please refer to it and the <code>README.md</code> document under the <code>setup</code> folder.</p>
 
 
 </section>
